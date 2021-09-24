@@ -16,12 +16,13 @@ stages {
                 }
             }      
         
-         stage('mkdir') {
+         stage('Maven - WAR creation') {
             steps {
                     sh '''#!/bin/bash
-                 rm -rf ./abi
-                 mkdir abi
-                 git -C ./abi clone https://github.com/Abishek-Ravichander/Manavae-web-app-2.git
+                 rm -rf ./project
+                 mkdir project
+                 git -C ./project clone https://github.com/Abishek-Ravichander/Manavae-web-app-2.git
+                 cd ./project/Manavae-web-app-2/Java-Ansible && mvn clean package
          '''                 
                 }
             }      
