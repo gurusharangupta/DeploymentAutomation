@@ -25,7 +25,12 @@ stages {
          '''                 
                     sh "cd ./project/Manavae-web-app-2/Java-Ansible && mvn clean package"
                 }
-            }      
-                                                                   
+            }   
+        stage('jFrog artifactory'){
+        steps{
+                sh "cd ./project/Manavae-web-app-2/Java-Ansible && mvn deploy"
+        }
+        }
+        
         }
    }
