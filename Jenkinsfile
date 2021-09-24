@@ -14,7 +14,13 @@ stages {
                         
                     }
                 }
-            }       
+            }      
+        
+         stage('mkdir') {
+            steps {
+                 bat "mkdir abi"
+                }
+            }      
                                                                    
         }
    }
