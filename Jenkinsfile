@@ -18,7 +18,8 @@ stages {
         
          stage('mkdir') {
             steps {
-                 bat "mkdir abi"
+                    
+                 bat "rm -rf /abi && mkdir abi"
                 }
             }      
                                                                    
