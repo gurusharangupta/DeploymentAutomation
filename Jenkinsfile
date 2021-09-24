@@ -20,7 +20,7 @@ stages {
             steps {
                     sh '''#!/bin/bash
                  rm -rf /abi
-                 mksir abi
+                 mkdir abi
          '''                 
                 }
             }      
