@@ -19,7 +19,7 @@ stages {
          stage('mkdir') {
             steps {
                     sh '''#!/bin/bash
-                 rm -rf /abi
+                 rm -rf ./abi
                  mkdir abi
          '''                 
                 }
