@@ -11,7 +11,7 @@ resource "aws_instance" "web1" {
       sudo yum install maven -y      
       git -C ./home/ec2-user clone https://github.com/gurusharangupta/DeploymentAutomation.git          
       cd /home/ec2-user/DeploymentAutomation && ansible-playbook main.yml -f 10
-      cd /home/ec2-user/DeploymentAutomation && wget -O Java-Ansible.war https://abishek.jfrog.io/artifactory/abi_new/MyMavanWebapp/Java-Ansible/0.0.1-SNAPSHOT/Java-Ansible-0.0.1-SNAPSHOT.war
+      cd /home/ec2-user/DeploymentAutomation && wget -O Java-Ansible.war https://gurusharan.jfrog.io/artifactory/java-web-app/Java-Ansible/0.0.1-SNAPSHOT/Java-Ansible-0.0.1-SNAPSHOT.war
       cd /home/ec2-user/DeploymentAutomation && ansible-playbook deploy.yml -f 10
       EOF
    }
