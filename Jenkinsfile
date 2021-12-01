@@ -23,7 +23,7 @@ stages {
                  mkdir project
                  git -C ./project clone https://github.com/gurusharangupta/Java-web-app.git    
          '''                 
-                    sh "cd ./project/Manavae-web-app-2/Java-Ansible && mvn clean package"
+                    sh "cd ./project/Java-web-app/Java-Ansible && mvn clean package"
                 }
             }   
         stage('jFrog artifactory'){
