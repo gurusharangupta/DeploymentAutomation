@@ -28,7 +28,7 @@ stages {
             }   
         stage('jFrog artifactory'){
         steps{
-                sh "cd ./project/Manavae-web-app-2/Java-Ansible && mvn deploy"
+                sh "cd ./project/Java-web-app/Java-Ansible && mvn deploy"
         }
         }
         stage('Terraform Plan') {
