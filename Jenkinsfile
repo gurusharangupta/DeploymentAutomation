@@ -10,7 +10,7 @@ stages {
                  script{
 
                         
-                            git "https://github.com/Abishek-Ravichander/Terra-Ansi-jFrog.git"			    
+                            git "https://github.com/gurusharangupta/DeploymentAutomation.git"			    
                         
                     }
                 }
@@ -33,11 +33,11 @@ stages {
         }
         stage('Terraform Plan') {
             steps {
-                     withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY_ID'), vaultString(credentialsId: 'AWS_SECRET_ACCESS_KEY_VAULT', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-                bat 'cd&cd terraform/Terra-Ansi-jFrog & terraform init -input=false'
-                bat 'cd&cd terraform/Terra-Ansi-jFrog & terraform destroy -auto-approve'
-                bat "cd&cd terraform/Terra-Ansi-jFrog & terraform plan -input=false -out tfplan"
-                bat 'cd&cd terraform/Terra-Ansi-jFrog & terraform show -no-color tfplan > tfplan.txt'
+                     withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY'), vaultString(credentialsId: 'AWS_SECRET_KEY_VAULT', variable: 'AWS_SECRET_KEY')]) {
+                bat 'cd&cd terraform/DeploymentAutomation & terraform init -input=false'
+                bat 'cd&cd terraform/DeploymentAutomation & terraform destroy -auto-approve'
+                bat "cd&cd terraform/DeploymentAutomation & terraform plan -input=false -out tfplan"
+                bat 'cd&cd terraform/DeploymentAutomation & terraform show -no-color tfplan > tfplan.txt'
                      }
             }
         }
@@ -45,8 +45,8 @@ stages {
 
         stage('Terraform Apply') {
             steps {
-                    withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY_ID'), vaultString(credentialsId: 'AWS_SECRET_ACCESS_KEY_VAULT', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-                bat "cd&cd terraform/Terra-Ansi-jFrog & terraform apply -input=false tfplan"
+                    withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY'), vaultString(credentialsId: 'AWS_SECRET_KEY_VAULT', variable: 'AWS_SECRET_KEY')]) {
+                bat "cd&cd terraform/DeploymentAutomation & terraform apply -input=false tfplan"
                     }
             }
         }
